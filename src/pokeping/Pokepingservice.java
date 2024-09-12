@@ -6,7 +6,7 @@ public class Pokepingservice {
     public static void main(String[] args) throws SQLException {
         Connection conn = makeConnection();
         findAllPokeping(conn);
-         buyPokeping(conn, 4);
+        buyPokeping(conn, 4);
         findminePokeping(conn,"mingyu");
     }
 
@@ -100,8 +100,8 @@ public class Pokepingservice {
 
     public static void findminePokeping(Connection conn, String userid) throws SQLException {
         String sql = "select * from pokeping p join mypokeping m on p.poke_id = m.poke_id where user_id = ?;";
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, userid);
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, userid);
         ResultSet resultSet = pstmt.executeQuery();
         while (resultSet.next()) {
             int id = resultSet.getInt("poke_id");
@@ -132,4 +132,5 @@ public class Pokepingservice {
 
     }
 }
+
 
